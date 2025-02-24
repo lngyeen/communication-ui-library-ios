@@ -11,6 +11,7 @@ struct BottomBarView: View {
         static let focusDelay: CGFloat = 1.0
         static let padding: CGFloat = 12
     }
+
     @StateObject var viewModel: BottomBarViewModel
 
     @State var textEditorHeight: CGFloat = 20
@@ -60,6 +61,7 @@ struct TextEditorView: View {
 
     @Binding var text: String
     @State var textEditorHeight: CGFloat = Constants.minimumHeight
+    @FocusState var focused: Bool
 
     var body: some View {
         ZStack(alignment: .leading) {
@@ -85,12 +87,16 @@ struct TextEditorView: View {
 
     var textEditor: some View {
         TextEditor(text: $text)
+            .focused($focused)
             .font(.system(.body))
             .frame(height: max(Constants.minimumHeight, textEditorHeight))
             .padding([.leading], Constants.leadingPadding)
             .padding([.top], Constants.padding)
             .overlay(RoundedRectangle(cornerRadius: Constants.cornerRadius)
                 .stroke(Color(StyleProvider.color.dividerOnPrimary)))
+            .onAppear(perform: {
+                focused = true
+            })
     }
 
     var placeHolder: some View {

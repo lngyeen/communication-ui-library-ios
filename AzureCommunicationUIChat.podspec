@@ -5,7 +5,7 @@ Pod::Spec.new do |spec|
   spec.homepage             = "https://github.com/lngyeen/communication-ui-library-ios"
   spec.license              = { :type => 'MIT' }
   spec.author               = 'Microsoft'
-  spec.source               = { :git => 'https://github.com/lngyeen/communication-ui-library-ios.git', :tag => 'AzureCommunicationUIChat_1.0.0-beta.4' }
+  spec.source               = { :git => 'https://github.com/lngyeen/communication-ui-library-ios.git', :tag => 'AzureCommunicationUIChat_1.0.0-beta.5' }
   spec.module_name          = 'AzureCommunicationUIChat'
   spec.swift_version        = '5.6'
 
